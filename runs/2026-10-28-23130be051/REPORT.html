@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coverage 2026-10-28, charm 23130be051</title>
+<style>
+body { font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+       max-width: 72em; margin: 2em auto; padding: 0 1em; color: #222; }
+h1 { font-size: 1.6em; } h2 { font-size: 1.25em; margin-top: 2em; } h3 { font-size: 1.05em; }
+table { border-collapse: collapse; margin: 0.6em 0; font-size: 0.93em; }
+th, td { border: 1px solid #ccc; padding: 0.2em 0.6em; text-align: left; white-space: nowrap; }
+th { background: #f0f0f0; } td.num { text-align: right; }
+pre { background: #f6f6f6; padding: 0.6em; overflow-x: auto; font-size: 0.9em; }
+code { background: #f6f6f6; padding: 0 0.2em; }
+nav { color: #666; margin-bottom: 1em; } nav a { color: #246; }
+.big { font-size: 2em; font-weight: bold; margin-right: 1.2em; }
+.lbl { color: #666; font-size: 0.85em; display: block; }
+.muted { color: #666; font-size: 0.9em; }
+</style></head>
+<body>
+<nav><a href="../../index.html">All runs</a> &middot; <a href="html/index.html">Per-file HTML view</a></nav>
+<h1>Charm++ and reconverse coverage</h1>
+<pre>date: 2026-10-28 17:14:15 UTC
+charm: 23130be051
+reconverse: a8efcfc233
+compiler: /usr/bin/clang++ (Ubuntu clang version 18.1.3 (1ubuntu1))
+build: /home/runner/work/charm/charm/reconverse-linux-x86_64-clang
+shapes: 1 2</pre>
+<p>Tiers run: ci (22 directories, 509 s); all (36 directories, 320 s); ex (81 directories, 862 s). Measured over 149 binaries (every test and example program built, plus libreconverse). Charm++ libraries are static: a source no program links does not count at all (see "Compiled sources absent from every binary").</p>
+<h2>Headline</h2>
+<p><strong>Charm++, all files (src/ and generated .decl.h/.def.h)</strong></p>
+<table>
+<tr><th>tier</th><th>lines covered / total</th><th>lines %</th><th>functions covered / total</th><th>functions %</th><th>regions covered / total</th><th>regions %</th></tr>
+<tr><td>ci</td><td>18159 / 82387</td><td>22.0%</td><td>3366 / 20669</td><td>16.3%</td><td>11811 / 49421</td><td>23.9%</td></tr>
+<tr><td>ci+all</td><td>24896 / 82392</td><td>30.2%</td><td>4710 / 20670</td><td>22.8%</td><td>15158 / 49453</td><td>30.7%</td></tr>
+<tr><td>ci+all+ex</td><td>30001 / 82391</td><td>36.4%</td><td>5557 / 20670</td><td>26.9%</td><td>18260 / 49475</td><td>36.9%</td></tr>
+</table>
+<p><strong>Charm++, hand-written files only (no .decl.h/.def.h)</strong></p>
+<table>
+<tr><th>tier</th><th>lines covered / total</th><th>lines %</th><th>functions covered / total</th><th>functions %</th><th>regions covered / total</th><th>regions %</th></tr>
+<tr><td>ci</td><td>12960 / 47219</td><td>27.4%</td><td>2341 / 12179</td><td>19.2%</td><td>10214 / 35665</td><td>28.6%</td></tr>
+<tr><td>ci+all</td><td>17189 / 47224</td><td>36.4%</td><td>3264 / 12180</td><td>26.8%</td><td>12782 / 35692</td><td>35.8%</td></tr>
+<tr><td>ci+all+ex</td><td>21668 / 47223</td><td>45.9%</td><td>3944 / 12180</td><td>32.4%</td><td>15663 / 35711</td><td>43.9%</td></tr>
+</table>
+<p><strong>Reconverse (contrib/reconverse)</strong></p>
+<table>
+<tr><th>tier</th><th>lines covered / total</th><th>lines %</th><th>functions covered / total</th><th>functions %</th><th>regions covered / total</th><th>regions %</th></tr>
+<tr><td>ci</td><td>3878 / 8171</td><td>47.5%</td><td>413 / 820</td><td>50.4%</td><td>3594 / 6949</td><td>51.7%</td></tr>
+<tr><td>ci+all</td><td>4022 / 8171</td><td>49.2%</td><td>432 / 820</td><td>52.7%</td><td>3713 / 6949</td><td>53.4%</td></tr>
+<tr><td>ci+all+ex</td><td>4033 / 8171</td><td>49.4%</td><td>436 / 820</td><td>53.2%</td><td>3719 / 6949</td><td>53.5%</td></tr>
+</table>
+<p><strong>Charm++ and reconverse together, hand-written only</strong></p>
+<table>
+<tr><th>tier</th><th>lines covered / total</th><th>lines %</th><th>functions covered / total</th><th>functions %</th><th>regions covered / total</th><th>regions %</th></tr>
+<tr><td>ci</td><td>16838 / 55390</td><td>30.4%</td><td>2754 / 12999</td><td>21.2%</td><td>13808 / 42614</td><td>32.4%</td></tr>
+<tr><td>ci+all</td><td>21211 / 55395</td><td>38.3%</td><td>3696 / 13000</td><td>28.4%</td><td>16495 / 42641</td><td>38.7%</td></tr>
+<tr><td>ci+all+ex</td><td>25701 / 55394</td><td>46.4%</td><td>4380 / 13000</td><td>33.7%</td><td>19382 / 42660</td><td>45.4%</td></tr>
+</table>
+<p><code>ck-convcore-summary</code> over the ci+all+ex lcov export (src/ck-core and contrib/reconverse/src, source paths only):</p>
+<pre>Summary ck (src/ck-core) (51 files):
+	lines......: 68.1% (10355 of 15199 lines)
+	functions..: 71.5% (1257 of 1758 functions)
+Summary conv (contrib/reconverse/src) (42 files):
+	lines......: 48.5% (3763 of 7752 lines)
+	functions..: 54.7% (415 of 758 functions)</pre>
+<h2>Per directory (ci+all+ex; ci for reference)</h2>
+<table>
+<tr><th>directory</th><th>files</th><th>ci+all+ex lines covered / total</th><th>ci+all+ex %</th><th>ci lines covered / total</th><th>ci %</th></tr>
+<tr><td>BUILD (generated in the build directory)</td><td>1</td><td>1 / 3</td><td>33.3%</td><td>1 / 3</td><td>33.3%</td></tr>
+<tr><td>src/ck-core</td><td>81</td><td>14710 / 31682</td><td>46.4%</td><td>12215 / 31690</td><td>38.5%</td></tr>
+<tr><td>src/ck-cp</td><td>2</td><td>0 / 278</td><td>0.0%</td><td>0 / 278</td><td>0.0%</td></tr>
+<tr><td>src/ck-ldb</td><td>73</td><td>6297 / 18875</td><td>33.4%</td><td>3135 / 18872</td><td>16.6%</td></tr>
+<tr><td>src/ck-perf</td><td>8</td><td>203 / 1199</td><td>16.9%</td><td>191 / 1199</td><td>15.9%</td></tr>
+<tr><td>src/conv-ccs</td><td>2</td><td>28 / 293</td><td>9.6%</td><td>28 / 293</td><td>9.6%</td></tr>
+<tr><td>src/conv-core</td><td>10</td><td>854 / 4135</td><td>20.7%</td><td>348 / 4125</td><td>8.4%</td></tr>
+<tr><td>src/conv-ldb</td><td>1</td><td>0 / 9</td><td>0.0%</td><td>0 / 9</td><td>0.0%</td></tr>
+<tr><td>src/conv-perf</td><td>7</td><td>94 / 613</td><td>15.3%</td><td>94 / 613</td><td>15.3%</td></tr>
+<tr><td>src/libs/ck-libs/NDMeshStreamer</td><td>6</td><td>907 / 2291</td><td>39.6%</td><td>0 / 2291</td><td>0.0%</td></tr>
+<tr><td>src/libs/ck-libs/allGather</td><td>3</td><td>0 / 1459</td><td>0.0%</td><td>0 / 1459</td><td>0.0%</td></tr>
+<tr><td>src/libs/ck-libs/completion</td><td>3</td><td>560 / 1138</td><td>49.2%</td><td>560 / 1138</td><td>49.2%</td></tr>
+<tr><td>src/libs/ck-libs/io</td><td>7</td><td>1769 / 6607</td><td>26.8%</td><td>0 / 6607</td><td>0.0%</td></tr>
+<tr><td>src/libs/ck-libs/metis</td><td>40</td><td>1916 / 5861</td><td>32.7%</td><td>0 / 5861</td><td>0.0%</td></tr>
+<tr><td>src/util</td><td>27</td><td>2662 / 7948</td><td>33.5%</td><td>1587 / 7949</td><td>20.0%</td></tr>
+<tr><td>contrib/reconverse/include</td><td>7</td><td>265 / 397</td><td>66.8%</td><td>246 / 397</td><td>62.0%</td></tr>
+<tr><td>contrib/reconverse/src</td><td>42</td><td>3768 / 7774</td><td>48.5%</td><td>3632 / 7774</td><td>46.7%</td></tr>
+</table>
+<h3>Per file: src/ck-core</h3>
+<table>
+<tr><th>file</th><th>ci covered / total</th><th>ci %</th><th>ci+all+ex covered / total</th><th>ci+all+ex %</th></tr>
+<tr><td>CkArray.decl.h [gen]</td><td>168 / 458</td><td>36.7%</td><td>177 / 458</td><td>38.6%</td></tr>
+<tr><td>CkArray.def.h [gen]</td><td>570 / 2020</td><td>28.2%</td><td>602 / 2020</td><td>29.8%</td></tr>
+<tr><td>CkCallback.decl.h [gen]</td><td>50 / 187</td><td>26.7%</td><td>50 / 187</td><td>26.7%</td></tr>
+<tr><td>CkCallback.def.h [gen]</td><td>196 / 840</td><td>23.3%</td><td>196 / 840</td><td>23.3%</td></tr>
+<tr><td>CkCheckpoint.decl.h [gen]</td><td>77 / 290</td><td>26.6%</td><td>77 / 290</td><td>26.6%</td></tr>
+<tr><td>CkCheckpoint.def.h [gen]</td><td>264 / 723</td><td>36.5%</td><td>264 / 723</td><td>36.5%</td></tr>
+<tr><td>CkCheckpointStatus.decl.h [gen]</td><td>3 / 12</td><td>25.0%</td><td>3 / 12</td><td>25.0%</td></tr>
+<tr><td>CkCheckpointStatus.def.h [gen]</td><td>4 / 39</td><td>10.3%</td><td>4 / 39</td><td>10.3%</td></tr>
+<tr><td>CkFutures.decl.h [gen]</td><td>38 / 177</td><td>21.5%</td><td>38 / 177</td><td>21.5%</td></tr>
+<tr><td>CkFutures.def.h [gen]</td><td>104 / 237</td><td>43.9%</td><td>104 / 237</td><td>43.9%</td></tr>
+<tr><td>CkLocation.decl.h [gen]</td><td>176 / 1604</td><td>11.0%</td><td>181 / 1604</td><td>11.3%</td></tr>
+<tr><td>CkLocation.def.h [gen]</td><td>628 / 1835</td><td>34.2%</td><td>720 / 1835</td><td>39.2%</td></tr>
+<tr><td>CkMarshall.decl.h [gen]</td><td>4 / 13</td><td>30.8%</td><td>4 / 13</td><td>30.8%</td></tr>
+<tr><td>CkMarshall.def.h [gen]</td><td>40 / 55</td><td>72.7%</td><td>40 / 55</td><td>72.7%</td></tr>
+<tr><td>CkMemCheckpoint.decl.h [gen]</td><td>0 / 370</td><td>0.0%</td><td>0 / 370</td><td>0.0%</td></tr>
+<tr><td>CkMemCheckpoint.def.h [gen]</td><td>0 / 2226</td><td>0.0%</td><td>0 / 2226</td><td>0.0%</td></tr>
+<tr><td>CkMulticast.decl.h [gen]</td><td>65 / 249</td><td>26.1%</td><td>84 / 249</td><td>33.7%</td></tr>
+<tr><td>CkMulticast.def.h [gen]</td><td>158 / 1897</td><td>8.3%</td><td>419 / 1897</td><td>22.1%</td></tr>
+<tr><td>CkReduction.decl.h [gen]</td><td>131 / 587</td><td>22.3%</td><td>131 / 587</td><td>22.3%</td></tr>
+<tr><td>CkReduction.def.h [gen]</td><td>265 / 733</td><td>36.2%</td><td>265 / 733</td><td>36.2%</td></tr>
+<tr><td>CkSyncBarrier.decl.h [gen]</td><td>40 / 161</td><td>24.8%</td><td>40 / 161</td><td>24.8%</td></tr>
+<tr><td>CkSyncBarrier.def.h [gen]</td><td>120 / 380</td><td>31.6%</td><td>120 / 380</td><td>31.6%</td></tr>
+<tr><td>XArraySectionReducer.h</td><td>0 / 40</td><td>0.0%</td><td>35 / 40</td><td>87.5%</td></tr>
+<tr><td>charm++.h</td><td>194 / 421</td><td>46.1%</td><td>218 / 421</td><td>51.8%</td></tr>
+<tr><td>charm.h</td><td>44 / 56</td><td>78.6%</td><td>44 / 56</td><td>78.6%</td></tr>
+<tr><td>ck.C</td><td>1154 / 1575</td><td>73.3%</td><td>1225 / 1575</td><td>77.8%</td></tr>
+<tr><td>ck.h</td><td>60 / 95</td><td>63.2%</td><td>70 / 95</td><td>73.7%</td></tr>
+<tr><td>ckarray.C</td><td>964 / 1339</td><td>72.0%</td><td>1029 / 1339</td><td>76.8%</td></tr>
+<tr><td>ckarray.h</td><td>199 / 351</td><td>56.7%</td><td>228 / 351</td><td>65.0%</td></tr>
+<tr><td>ckarrayindex.h</td><td>140 / 241</td><td>58.1%</td><td>174 / 241</td><td>72.2%</td></tr>
+<tr><td>ckarrayoptions.C</td><td>85 / 175</td><td>48.6%</td><td>160 / 175</td><td>91.4%</td></tr>
+<tr><td>ckarrayoptions.h</td><td>86 / 166</td><td>51.8%</td><td>109 / 166</td><td>65.7%</td></tr>
+<tr><td>ckcallback-ccs.h</td><td>0 / 3</td><td>0.0%</td><td>1 / 3</td><td>33.3%</td></tr>
+<tr><td>ckcallback.C</td><td>207 / 439</td><td>47.2%</td><td>247 / 439</td><td>56.3%</td></tr>
+<tr><td>ckcallback.h</td><td>116 / 242</td><td>47.9%</td><td>131 / 239</td><td>54.8%</td></tr>
+<tr><td>ckcheckpoint.C</td><td>393 / 542</td><td>72.5%</td><td>457 / 542</td><td>84.3%</td></tr>
+<tr><td>ckcheckpoint.h</td><td>7 / 8</td><td>87.5%</td><td>7 / 8</td><td>87.5%</td></tr>
+<tr><td>ckfutures.C</td><td>131 / 351</td><td>37.3%</td><td>155 / 351</td><td>44.2%</td></tr>
+<tr><td>ckfutures.h</td><td>0 / 28</td><td>0.0%</td><td>22 / 28</td><td>78.6%</td></tr>
+<tr><td>cklocation.C</td><td>1197 / 2521</td><td>47.5%</td><td>1549 / 2521</td><td>61.4%</td></tr>
+<tr><td>cklocation.h</td><td>143 / 171</td><td>83.6%</td><td>155 / 171</td><td>90.6%</td></tr>
+<tr><td>cklocrec.h</td><td>9 / 11</td><td>81.8%</td><td>10 / 11</td><td>90.9%</td></tr>
+<tr><td>ckmarshall.h</td><td>8 / 8</td><td>100.0%</td><td>8 / 8</td><td>100.0%</td></tr>
+<tr><td>ckmemcheckpoint.C</td><td>4 / 817</td><td>0.5%</td><td>4 / 817</td><td>0.5%</td></tr>
+<tr><td>ckmemcheckpoint.h</td><td>0 / 64</td><td>0.0%</td><td>0 / 64</td><td>0.0%</td></tr>
+<tr><td>ckmessage.h</td><td>2 / 2</td><td>100.0%</td><td>2 / 2</td><td>100.0%</td></tr>
+<tr><td>ckmigratable.h</td><td>3 / 7</td><td>42.9%</td><td>4 / 7</td><td>57.1%</td></tr>
+<tr><td>ckmulticast.C</td><td>2 / 1011</td><td>0.2%</td><td>776 / 1011</td><td>76.8%</td></tr>
+<tr><td>ckmulticast.h</td><td>10 / 11</td><td>90.9%</td><td>10 / 11</td><td>90.9%</td></tr>
+<tr><td>ckobjQ.h</td><td>0 / 9</td><td>0.0%</td><td>0 / 9</td><td>0.0%</td></tr>
+<tr><td>ckrdma.C</td><td>1045 / 1485</td><td>70.4%</td><td>1100 / 1485</td><td>74.1%</td></tr>
+<tr><td>ckrdma.h</td><td>79 / 103</td><td>76.7%</td><td>82 / 103</td><td>79.6%</td></tr>
+<tr><td>ckreduction.C</td><td>854 / 1424</td><td>60.0%</td><td>1040 / 1424</td><td>73.0%</td></tr>
+<tr><td>ckreduction.h</td><td>63 / 111</td><td>56.8%</td><td>73 / 111</td><td>65.8%</td></tr>
+<tr><td>cksection.h</td><td>9 / 33</td><td>27.3%</td><td>20 / 33</td><td>60.6%</td></tr>
+<tr><td>ckstream.h</td><td>9 / 65</td><td>13.8%</td><td>43 / 65</td><td>66.2%</td></tr>
+<tr><td>cksyncbarrier.C</td><td>141 / 167</td><td>84.4%</td><td>151 / 167</td><td>90.4%</td></tr>
+<tr><td>cksyncbarrier.h</td><td>24 / 26</td><td>92.3%</td><td>24 / 26</td><td>92.3%</td></tr>
+<tr><td>debug-charm.C</td><td>1 / 8</td><td>12.5%</td><td>1 / 8</td><td>12.5%</td></tr>
+<tr><td>debug-charm.h</td><td>0 / 5</td><td>0.0%</td><td>0 / 5</td><td>0.0%</td></tr>
+<tr><td>debug-message.C</td><td>44 / 105</td><td>41.9%</td><td>44 / 105</td><td>41.9%</td></tr>
+<tr><td>envelope.h</td><td>183 / 223</td><td>82.1%</td><td>183 / 223</td><td>82.1%</td></tr>
+<tr><td>init.C</td><td>599 / 833</td><td>71.9%</td><td>601 / 833</td><td>72.1%</td></tr>
+<tr><td>init.h</td><td>62 / 73</td><td>84.9%</td><td>62 / 73</td><td>84.9%</td></tr>
+<tr><td>main.C</td><td>3 / 3</td><td>100.0%</td><td>3 / 3</td><td>100.0%</td></tr>
+<tr><td>middle-conv.h</td><td>27 / 43</td><td>62.8%</td><td>27 / 43</td><td>62.8%</td></tr>
+<tr><td>mpi-interoperate.C</td><td>71 / 101</td><td>70.3%</td><td>71 / 101</td><td>70.3%</td></tr>
+<tr><td>msgalloc.C</td><td>101 / 106</td><td>95.3%</td><td>101 / 106</td><td>95.3%</td></tr>
+<tr><td>objid.h</td><td>25 / 30</td><td>83.3%</td><td>25 / 30</td><td>83.3%</td></tr>
+<tr><td>qd.C</td><td>149 / 181</td><td>82.3%</td><td>149 / 181</td><td>82.3%</td></tr>
+<tr><td>qd.h</td><td>44 / 49</td><td>89.8%</td><td>44 / 49</td><td>89.8%</td></tr>
+<tr><td>readonly.h</td><td>41 / 47</td><td>87.2%</td><td>41 / 47</td><td>87.2%</td></tr>
+<tr><td>register.C</td><td>76 / 118</td><td>64.4%</td><td>79 / 118</td><td>66.9%</td></tr>
+<tr><td>register.h</td><td>54 / 83</td><td>65.1%</td><td>61 / 82</td><td>74.4%</td></tr>
+<tr><td>sdag.C</td><td>8 / 8</td><td>100.0%</td><td>8 / 8</td><td>100.0%</td></tr>
+<tr><td>sdag.h</td><td>82 / 208</td><td>39.4%</td><td>166 / 204</td><td>81.4%</td></tr>
+<tr><td>stats.h</td><td>31 / 71</td><td>43.7%</td><td>31 / 71</td><td>43.7%</td></tr>
+<tr><td>waitqd.C</td><td>32 / 32</td><td>100.0%</td><td>32 / 32</td><td>100.0%</td></tr>
+<tr><td>waitqd.decl.h [gen]</td><td>20 / 42</td><td>47.6%</td><td>20 / 42</td><td>47.6%</td></tr>
+<tr><td>waitqd.def.h [gen]</td><td>78 / 109</td><td>71.6%</td><td>78 / 109</td><td>71.6%</td></tr>
+<tr><td>waitqd.h</td><td>1 / 1</td><td>100.0%</td><td>1 / 1</td><td>100.0%</td></tr>
+</table>
+<h3>Per file: contrib/reconverse/src</h3>
+<table>
+<tr><th>file</th><th>ci covered / total</th><th>ci %</th><th>ci+all+ex covered / total</th><th>ci+all+ex %</th></tr>
+<tr><td>backtrace.cpp</td><td>13 / 65</td><td>20.0%</td><td>13 / 65</td><td>20.0%</td></tr>
+<tr><td>barrier.h</td><td>11 / 18</td><td>61.1%</td><td>11 / 18</td><td>61.1%</td></tr>
+<tr><td>ccs/ccs-auth.cpp</td><td>0 / 137</td><td>0.0%</td><td>0 / 137</td><td>0.0%</td></tr>
+<tr><td>ccs/ccs-server.cpp</td><td>0 / 292</td><td>0.0%</td><td>0 / 292</td><td>0.0%</td></tr>
+<tr><td>ccs/conv-ccs.cpp</td><td>32 / 284</td><td>11.3%</td><td>32 / 284</td><td>11.3%</td></tr>
+<tr><td>ccs/middle-ccs.cpp</td><td>0 / 79</td><td>0.0%</td><td>0 / 79</td><td>0.0%</td></tr>
+<tr><td>ccs/sockRoutines.cpp</td><td>20 / 444</td><td>4.5%</td><td>20 / 444</td><td>4.5%</td></tr>
+<tr><td>cldb.cpp</td><td>13 / 16</td><td>81.2%</td><td>13 / 16</td><td>81.2%</td></tr>
+<tr><td>cldb.rand.cpp</td><td>128 / 138</td><td>92.8%</td><td>128 / 138</td><td>92.8%</td></tr>
+<tr><td>cmi-shmem-common.h</td><td>31 / 74</td><td>41.9%</td><td>31 / 74</td><td>41.9%</td></tr>
+<tr><td>cmirdmautils.cpp</td><td>81 / 93</td><td>87.1%</td><td>81 / 93</td><td>87.1%</td></tr>
+<tr><td>cmishm.cpp</td><td>8 / 167</td><td>4.8%</td><td>8 / 167</td><td>4.8%</td></tr>
+<tr><td>cmishmem.cpp</td><td>59 / 414</td><td>14.3%</td><td>59 / 414</td><td>14.3%</td></tr>
+<tr><td>collectives.cpp</td><td>476 / 532</td><td>89.5%</td><td>476 / 532</td><td>89.5%</td></tr>
+<tr><td>comm_backend/comm_backend_internal.cpp</td><td>116 / 144</td><td>80.6%</td><td>116 / 144</td><td>80.6%</td></tr>
+<tr><td>comm_backend/comm_backend_internal.h</td><td>1 / 16</td><td>6.2%</td><td>1 / 16</td><td>6.2%</td></tr>
+<tr><td>comm_backend/lci/comm_backend_lci.cpp</td><td>307 / 345</td><td>89.0%</td><td>310 / 345</td><td>89.9%</td></tr>
+<tr><td>comm_backend/lci/comm_backend_lci.h</td><td>2 / 3</td><td>66.7%</td><td>2 / 3</td><td>66.7%</td></tr>
+<tr><td>conv-conds.cpp</td><td>110 / 135</td><td>81.5%</td><td>119 / 135</td><td>88.1%</td></tr>
+<tr><td>conv-rdma.cpp</td><td>201 / 323</td><td>62.2%</td><td>201 / 323</td><td>62.2%</td></tr>
+<tr><td>conv-taskq.cpp</td><td>0 / 49</td><td>0.0%</td><td>0 / 49</td><td>0.0%</td></tr>
+<tr><td>conv-topology.cpp</td><td>213 / 323</td><td>65.9%</td><td>215 / 323</td><td>66.6%</td></tr>
+<tr><td>convcore.cpp</td><td>733 / 1346</td><td>54.5%</td><td>749 / 1346</td><td>55.6%</td></tr>
+<tr><td>converse_internal.h</td><td>2 / 2</td><td>100.0%</td><td>2 / 2</td><td>100.0%</td></tr>
+<tr><td>cpuaffinity.cpp</td><td>14 / 28</td><td>50.0%</td><td>18 / 28</td><td>64.3%</td></tr>
+<tr><td>futures.cpp</td><td>4 / 70</td><td>5.7%</td><td>4 / 70</td><td>5.7%</td></tr>
+<tr><td>mempool.C</td><td>335 / 453</td><td>74.0%</td><td>335 / 453</td><td>74.0%</td></tr>
+<tr><td>mempool.h</td><td>6 / 6</td><td>100.0%</td><td>6 / 6</td><td>100.0%</td></tr>
+<tr><td>msgmgr.cpp</td><td>0 / 91</td><td>0.0%</td><td>0 / 91</td><td>0.0%</td></tr>
+<tr><td>persist-comm.cpp</td><td>35 / 420</td><td>8.3%</td><td>35 / 420</td><td>8.3%</td></tr>
+<tr><td>queue.h</td><td>40 / 50</td><td>80.0%</td><td>40 / 50</td><td>80.0%</td></tr>
+<tr><td>queueing.cpp</td><td>81 / 102</td><td>79.4%</td><td>81 / 102</td><td>79.4%</td></tr>
+<tr><td>random.cpp</td><td>7 / 14</td><td>50.0%</td><td>8 / 14</td><td>57.1%</td></tr>
+<tr><td>scheduler.cpp</td><td>72 / 98</td><td>73.5%</td><td>72 / 98</td><td>73.5%</td></tr>
+<tr><td>scheduler.h</td><td>2 / 2</td><td>100.0%</td><td>2 / 2</td><td>100.0%</td></tr>
+<tr><td>scheduler_old.cpp</td><td>0 / 194</td><td>0.0%</td><td>0 / 194</td><td>0.0%</td></tr>
+<tr><td>scheduler_randomized.cpp</td><td>0 / 72</td><td>0.0%</td><td>0 / 72</td><td>0.0%</td></tr>
+<tr><td>scheduler_registered.cpp</td><td>80 / 87</td><td>92.0%</td><td>80 / 87</td><td>92.0%</td></tr>
+<tr><td>scheduler_registry.cpp</td><td>51 / 96</td><td>53.1%</td><td>51 / 96</td><td>53.1%</td></tr>
+<tr><td>scheduler_take.h</td><td>52 / 52</td><td>100.0%</td><td>52 / 52</td><td>100.0%</td></tr>
+<tr><td>threads.cpp</td><td>276 / 480</td><td>57.5%</td><td>377 / 480</td><td>78.5%</td></tr>
+<tr><td>uFcontext.h</td><td>20 / 20</td><td>100.0%</td><td>20 / 20</td><td>100.0%</td></tr>
+</table>
+<h3>Lowest 30 files with more than 100 lines (ci+all+ex)</h3>
+<table>
+<tr><th>file</th><th>lines covered / total</th><th>%</th></tr>
+<tr><td>contrib/reconverse/src/ccs/ccs-auth.cpp</td><td>0 / 137</td><td>0.0%</td></tr>
+<tr><td>contrib/reconverse/src/ccs/ccs-server.cpp</td><td>0 / 292</td><td>0.0%</td></tr>
+<tr><td>contrib/reconverse/src/scheduler_old.cpp</td><td>0 / 194</td><td>0.0%</td></tr>
+<tr><td>src/ck-core/CkMemCheckpoint.decl.h [gen]</td><td>0 / 370</td><td>0.0%</td></tr>
+<tr><td>src/ck-core/CkMemCheckpoint.def.h [gen]</td><td>0 / 2226</td><td>0.0%</td></tr>
+<tr><td>src/ck-cp/PathHistory.decl.h [gen]</td><td>0 / 182</td><td>0.0%</td></tr>
+<tr><td>src/ck-ldb/CentralPredictor.C</td><td>0 / 232</td><td>0.0%</td></tr>
+<tr><td>src/ck-ldb/GreedyRefineCentralGPULB.C</td><td>0 / 367</td><td>0.0%</td></tr>
+<tr><td>src/ck-ldb/LBSimulation.C</td><td>0 / 230</td><td>0.0%</td></tr>
+<tr><td>src/ck-ldb/RandomForestModel.h</td><td>0 / 102</td><td>0.0%</td></tr>
+<tr><td>src/ck-perf/TraceControlPoints.decl.h [gen]</td><td>0 / 137</td><td>0.0%</td></tr>
+<tr><td>src/ck-perf/trace-controlPoints.C</td><td>0 / 137</td><td>0.0%</td></tr>
+<tr><td>src/libs/ck-libs/allGather/allGather.C</td><td>0 / 114</td><td>0.0%</td></tr>
+<tr><td>src/libs/ck-libs/allGather/allGather.decl.h [gen]</td><td>0 / 177</td><td>0.0%</td></tr>
+<tr><td>src/libs/ck-libs/allGather/allGather.def.h [gen]</td><td>0 / 1168</td><td>0.0%</td></tr>
+<tr><td>src/libs/ck-libs/metis/libmetis/mincover.c</td><td>0 / 161</td><td>0.0%</td></tr>
+<tr><td>src/libs/ck-libs/metis/libmetis/separator.c</td><td>0 / 106</td><td>0.0%</td></tr>
+<tr><td>src/libs/ck-libs/metis/libmetis/sfm.c</td><td>0 / 421</td><td>0.0%</td></tr>
+<tr><td>src/util/hilbert.C</td><td>0 / 119</td><td>0.0%</td></tr>
+<tr><td>src/util/partitioning_strategies.C</td><td>0 / 305</td><td>0.0%</td></tr>
+<tr><td>src/util/simd.h</td><td>0 / 161</td><td>0.0%</td></tr>
+<tr><td>src/ck-core/ckmemcheckpoint.C</td><td>4 / 817</td><td>0.5%</td></tr>
+<tr><td>src/ck-ldb/RecBipartLB.C</td><td>6 / 582</td><td>1.0%</td></tr>
+<tr><td>src/libs/ck-libs/metis/libmetis/balance.c</td><td>7 / 344</td><td>2.0%</td></tr>
+<tr><td>src/conv-perf/traceCore.C</td><td>13 / 355</td><td>3.7%</td></tr>
+<tr><td>src/conv-perf/charmProjections.C</td><td>7 / 160</td><td>4.4%</td></tr>
+<tr><td>contrib/reconverse/src/ccs/sockRoutines.cpp</td><td>20 / 444</td><td>4.5%</td></tr>
+<tr><td>contrib/reconverse/src/cmishm.cpp</td><td>8 / 167</td><td>4.8%</td></tr>
+<tr><td>src/ck-ldb/RecBipartLB.decl.h [gen]</td><td>8 / 116</td><td>6.9%</td></tr>
+<tr><td>contrib/reconverse/src/persist-comm.cpp</td><td>35 / 420</td><td>8.3%</td></tr>
+</table>
+<h2>Compiled sources absent from every binary</h2>
+<p>114 of 244 source files the build compiles (from the CMake DependInfo.cmake lists; LCI and src/xlat-i, the host tool charmxi, left out) appear in no measured binary, either because no program links them or because they hold no instrumentable code in this configuration. They are in no denominator above.</p>
+<pre>BUILD/CMakeFiles/FortranCInterface/symbols/MYMODULE_mp_MYSUB-UPPER.c
+BUILD/CMakeFiles/FortranCInterface/symbols/MYSUB-UPPER.c
+BUILD/CMakeFiles/FortranCInterface/symbols/MY_MODULE_mp_MY_SUB-UPPER.c
+BUILD/CMakeFiles/FortranCInterface/symbols/MY_SUB-UPPER.c
+BUILD/CMakeFiles/FortranCInterface/symbols/_QMmy_modulePmy_sub.c
+BUILD/CMakeFiles/FortranCInterface/symbols/_QMmymodulePmysub.c
+BUILD/CMakeFiles/FortranCInterface/symbols/__my_module_MOD_my_sub.c
+BUILD/CMakeFiles/FortranCInterface/symbols/__my_module_NMOD_my_sub.c
+BUILD/CMakeFiles/FortranCInterface/symbols/__my_module__my_sub.c
+BUILD/CMakeFiles/FortranCInterface/symbols/__mymodule_MOD_mysub.c
+BUILD/CMakeFiles/FortranCInterface/symbols/__mymodule_NMOD_mysub.c
+BUILD/CMakeFiles/FortranCInterface/symbols/__mymodule__mysub.c
+BUILD/CMakeFiles/FortranCInterface/symbols/my_moduleSmy_sub.c
+BUILD/CMakeFiles/FortranCInterface/symbols/my_module_MP_my_sub.c
+BUILD/CMakeFiles/FortranCInterface/symbols/my_module_mp_my_sub_.c
+BUILD/CMakeFiles/FortranCInterface/symbols/my_module_my_sub_.c
+BUILD/CMakeFiles/FortranCInterface/symbols/my_sub.c
+BUILD/CMakeFiles/FortranCInterface/symbols/my_sub_.c
+BUILD/CMakeFiles/FortranCInterface/symbols/my_sub__.c
+BUILD/CMakeFiles/FortranCInterface/symbols/mymoduleSmysub.c
+BUILD/CMakeFiles/FortranCInterface/symbols/mymodule_MP_mysub.c
+BUILD/CMakeFiles/FortranCInterface/symbols/mymodule_mp_mysub_.c
+BUILD/CMakeFiles/FortranCInterface/symbols/mymodule_mysub_.c
+BUILD/CMakeFiles/FortranCInterface/symbols/mysub.c
+BUILD/CMakeFiles/FortranCInterface/symbols/mysub_.c
+BUILD/include/commitid.C
+contrib/reconverse/src/ccs/ccs-client.cpp
+src/ck-core/ckIgetControl.C
+src/ck-core/ckrdmadevice.C
+src/ck-core/mpi-mainmodule.C
+src/ck-cp/API-generator/cp_effects.C
+src/ck-cp/arrayRedistributor.C
+src/ck-cp/controlPoints.C
+src/ck-cp/pathHistory.C
+src/ck-ldb/EveryLB.C
+src/ck-ldb/HybridBaseLB.C
+src/ck-ldb/LButil.C
+src/ck-ldb/Refiner.C
+src/ck-ldb/RefinerTemp.C
+src/ck-ldb/ScotchLB.C
+src/ck-ldb/TempAwareRefineLB.C
+src/ck-ldb/ckset.C
+src/ck-ldb/lbdbf.C
+src/ck-ldb/manager.C
+src/ck-perf/trace-converse.C
+src/ck-perf/trace-counter.C
+src/ck-perf/trace-memory.C
+src/ck-perf/trace-projections.C
+src/ck-perf/trace-projector.C
+src/ck-perf/trace-simple.C
+src/ck-perf/trace-summary.C
+src/ck-perf/trace-utilization.C
+src/ck-perf/tracec.C
+src/ck-perf/tracef.C
+src/ck-pics/picsautoperf.C
+src/ck-pics/picsautoperfAPI.C
+src/ck-pics/picsdecisiontree.C
+src/ck-pics/picstreenode.C
+src/ck-pics/trace-perf.C
+src/conv-perf/converseProjections.C
+src/conv-perf/machineProjections.C
+src/libs/ck-libs/ckloop/CkLoop.C
+src/libs/ck-libs/dummy/ckdummy.C
+src/libs/ck-libs/metis/GKlib/b64.c
+src/libs/ck-libs/metis/GKlib/blas.c
+src/libs/ck-libs/metis/GKlib/csr.c
+src/libs/ck-libs/metis/GKlib/evaluate.c
+src/libs/ck-libs/metis/GKlib/fkvkselect.c
+src/libs/ck-libs/metis/GKlib/fs.c
+src/libs/ck-libs/metis/GKlib/getopt.c
+src/libs/ck-libs/metis/GKlib/gkregex.c
+src/libs/ck-libs/metis/GKlib/graph.c
+src/libs/ck-libs/metis/GKlib/htable.c
+src/libs/ck-libs/metis/GKlib/io.c
+src/libs/ck-libs/metis/GKlib/itemsets.c
+src/libs/ck-libs/metis/GKlib/omp.c
+src/libs/ck-libs/metis/GKlib/pdb.c
+src/libs/ck-libs/metis/GKlib/pqueue.c
+src/libs/ck-libs/metis/GKlib/rw.c
+src/libs/ck-libs/metis/GKlib/seq.c
+src/libs/ck-libs/metis/GKlib/sort.c
+src/libs/ck-libs/metis/GKlib/string.c
+src/libs/ck-libs/metis/GKlib/tokenizer.c
+src/libs/ck-libs/metis/GKlib/util.c
+src/libs/ck-libs/metis/libmetis/compress.c
+src/libs/ck-libs/metis/libmetis/contig.c
+src/libs/ck-libs/metis/libmetis/frename.c
+src/libs/ck-libs/metis/libmetis/kmetis.c
+src/libs/ck-libs/metis/libmetis/kwayfm.c
+src/libs/ck-libs/metis/libmetis/kwayrefine.c
+src/libs/ck-libs/metis/libmetis/mesh.c
+src/libs/ck-libs/metis/libmetis/meshpart.c
+src/libs/ck-libs/metis/libmetis/minconn.c
+src/libs/ck-libs/metis/libmetis/mmd.c
+src/libs/ck-libs/metis/libmetis/ometis.c
+src/libs/ck-libs/metis/libmetis/parmetis.c
+src/libs/ck-libs/metis/libmetis/stat.c
+src/libs/ck-libs/tcharm/compat_es.c
+src/libs/ck-libs/tcharm/compat_funs.c
+src/libs/ck-libs/tcharm/compat_fus.c
+src/libs/ck-libs/tcharm/compat_ns.c
+src/libs/ck-libs/tcharm/compat_regmm.c
+src/libs/ck-libs/tcharm/compat_uns.c
+src/libs/ck-libs/tcharm/compat_us.c
+src/libs/ck-libs/tcharm/tcharm.C
+src/libs/ck-libs/tcharm/tcharmmain.C
+src/util/ckdll.C
+src/util/ckimage.C
+src/util/ckregex.C
+src/util/cmirdmautils.C
+src/util/crc32.C
+src/util/pup_cmialloc.C
+src/util/pup_paged.C
+src/util/pup_toNetwork4.C</pre>
+<h2>Tests that ran nothing</h2>
+<p>A passing <code>make test</code> run that wrote no profile: the target started no program, or testrun skipped every run for this process count. These pass in CI without testing anything.</p>
+<table>
+<tr><th>tier</th><th>directory</th><th>run</th><th>reason</th></tr>
+<tr><td>ci</td><td>tests/charm++/dynamic_insertion_deletion</td><td>run2p</td><td>ran nothing: testrun skipped every run (PEs not divisible by 2)</td></tr>
+<tr><td>all</td><td>tests/charm++/delegation/multicast</td><td>run2p</td><td>ran nothing: testrun skipped every run (PEs not divisible by 2)</td></tr>
+<tr><td>all</td><td>tests/charm++/collide</td><td>run1p</td><td>ran nothing: the test target started no program</td></tr>
+<tr><td>all</td><td>tests/charm++/collide</td><td>run2p</td><td>ran nothing: the test target started no program</td></tr>
+<tr><td>ex</td><td>examples/charm++/allGather</td><td>run1p</td><td>ran nothing: the test target started no program</td></tr>
+<tr><td>ex</td><td>examples/charm++/allGather</td><td>run2p</td><td>ran nothing: the test target started no program</td></tr>
+</table>
+<h2>Test outcomes</h2>
+<p>Outcome (wall seconds). A run that fails or times out writes no profile, so its partial execution is not counted.</p>
+<h3>Tier ci (22 directories)</h3>
+<table>
+<tr><th>directory</th><th>build</th><th>run1p</th><th>run2p</th><th>note</th></tr>
+<tr><td>tests/charm++/megatest</td><td>ok (72)</td><td>pass (3)</td><td>pass (5)</td><td>run2p: testrun skipped some runs (PEs not divisible by 2)</td></tr>
+<tr><td>tests/charm++/simplearrayhello</td><td>ok (4)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>tests/charm++/anytime_migration</td><td>ok (3)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>tests/charm++/amr_1d_simple</td><td>ok (4)</td><td>pass (2)</td><td>pass (3)</td><td>run2p: testrun skipped some runs (PEs not divisible by 2)</td></tr>
+<tr><td>tests/charm++/dynamic_insertion</td><td>ok (4)</td><td>pass (1)</td><td>pass (4)</td><td></td></tr>
+<tr><td>tests/charm++/dynamic_insertion_deletion</td><td>ok (4)</td><td>pass (1)</td><td>pass (0)</td><td>run2p: ran nothing: testrun skipped every run (PEs not divisible by 2)</td></tr>
+<tr><td>tests/charm++/objid_insert</td><td>ok (4)</td><td>pass (5)</td><td>pass (13)</td><td></td></tr>
+<tr><td>tests/charm++/objid_wide</td><td>ok (5)</td><td>pass (41)</td><td>pass (87)</td><td></td></tr>
+<tr><td>tests/charm++/anytime_bcastred</td><td>ok (3)</td><td>pass (1)</td><td>pass (5)</td><td></td></tr>
+<tr><td>tests/charm++/atsync_reduction</td><td>ok (4)</td><td>pass (11)</td><td>pass (26)</td><td></td></tr>
+<tr><td>tests/charm++/threaded_redn</td><td>ok (4)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>tests/charm++/qd</td><td>ok (4)</td><td>pass (2)</td><td>pass (3)</td><td></td></tr>
+<tr><td>tests/charm++/within_node_bcast</td><td>ok (4)</td><td>pass (2)</td><td>pass (2)</td><td></td></tr>
+<tr><td>tests/charm++/zerocopy/zerocopy_with_qd</td><td>ok (4)</td><td>pass (14)</td><td>pass (10)</td><td></td></tr>
+<tr><td>tests/charm++/zerocopy/direct_api</td><td>ok (4)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>tests/charm++/zerocopy/large_bcast</td><td>ok (4)</td><td>pass (1)</td><td>pass (3)</td><td></td></tr>
+<tr><td>tests/charm++/zerocopy/bcast_nonzero_root</td><td>ok (4)</td><td>pass (3)</td><td>pass (5)</td><td></td></tr>
+<tr><td>tests/charm++/zerocopy/dereg_and_nodereg</td><td>ok (4)</td><td>pass (2)</td><td>pass (4)</td><td></td></tr>
+<tr><td>tests/charm++/zerocopy/zc_post_async</td><td>ok (20)</td><td>pass (10)</td><td>pass (18)</td><td></td></tr>
+<tr><td>tests/charm++/zerocopy/pup_buffer</td><td>ok (4)</td><td>pass (15)</td><td>pass (8)</td><td></td></tr>
+<tr><td>examples/charm++/user-driven-interop</td><td>ok (8)</td><td>pass (3)</td><td>pass (6)</td><td></td></tr>
+<tr><td>examples/charm++/hello/local</td><td>ok (4)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+</table>
+<p>Counts: build ok: 22, run1p pass: 22, run2p pass: 22</p>
+<h3>Tier all (36 directories)</h3>
+<table>
+<tr><th>directory</th><th>build</th><th>run1p</th><th>run2p</th><th>note</th></tr>
+<tr><td>tests/util</td><td>ok (1)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>tests/charm++/alignment</td><td>ok (4)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>tests/charm++/migratable_threads</td><td>ok (4)</td><td>pass (0)</td><td>pass (1)</td><td></td></tr>
+<tr><td>tests/charm++/provisioning</td><td>ok (3)</td><td>pass (1)</td><td>pass (0)</td><td></td></tr>
+<tr><td>tests/charm++/load_balancing/lb_test</td><td>ok (7)</td><td>pass (2)</td><td>pass (3)</td><td></td></tr>
+<tr><td>tests/charm++/load_balancing/meta_lb_test</td><td>ok (4)</td><td>pass (2)</td><td>pass (4)</td><td></td></tr>
+<tr><td>tests/charm++/load_balancing/periodic_lb_broadcast_test</td><td>ok (4)</td><td>pass (2)</td><td>pass (2)</td><td></td></tr>
+<tr><td>tests/charm++/load_balancing/lb_userdata_test</td><td>ok (6)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>tests/charm++/chkpt</td><td>ok (4)</td><td>pass (3)</td><td>pass (7)</td><td></td></tr>
+<tr><td>tests/charm++/delegation/1darray</td><td>ok (4)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>tests/charm++/delegation/multicast</td><td>ok (4)</td><td>pass (1)</td><td>pass (0)</td><td>run2p: ran nothing: testrun skipped every run (PEs not divisible by 2)</td></tr>
+<tr><td>tests/charm++/sdag</td><td>ok (5)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>tests/charm++/ckAllocSysMsgTest</td><td>ok (4)</td><td>pass (3)</td><td>pass (6)</td><td></td></tr>
+<tr><td>tests/charm++/method_templates</td><td>ok (6)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>tests/charm++/demand_creation</td><td>ok (4)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>tests/charm++/startupTest</td><td>ok (4)</td><td>pass (7)</td><td>pass (9)</td><td></td></tr>
+<tr><td>tests/charm++/topology</td><td>ok (4)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>tests/charm++/io</td><td>ok (4)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>tests/charm++/sparse</td><td>ok (4)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>tests/charm++/reductionTesting/reductionTesting1D</td><td>ok (6)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>tests/charm++/reductionTesting/reductionTesting2D</td><td>ok (6)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>tests/charm++/reductionTesting/reductionTesting3D</td><td>ok (6)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>tests/charm++/partitions</td><td>ok (4)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>tests/charm++/charmxi_parsing</td><td>ok (14)</td><td>pass (5)</td><td>pass (8)</td><td></td></tr>
+<tr><td>tests/charm++/zerocopy/zc_post_modify_size</td><td>ok (4)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>tests/charm++/periodic</td><td>ok (3)</td><td>pass (7)</td><td>pass (9)</td><td></td></tr>
+<tr><td>tests/charm++/bombard</td><td>ok (3)</td><td>pass (2)</td><td>pass (5)</td><td></td></tr>
+<tr><td>tests/charm++/varTRAM</td><td>ok (4)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>tests/charm++/amr_1d_random</td><td>ok (5)</td><td>pass (2)</td><td>pass (4)</td><td>run2p: testrun skipped some runs (PEs not divisible by 2)</td></tr>
+<tr><td>tests/charm++/unbounded_migration</td><td>ok (3)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>tests/charm++/unbounded_restart</td><td>ok (4)</td><td>pass (3)</td><td>pass (4)</td><td>run2p: testrun skipped some runs (PEs not divisible by 2)</td></tr>
+<tr><td>tests/charm++/objid_home</td><td>ok (4)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>tests/charm++/objid_sections</td><td>ok (4)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>tests/charm++/objid_bound</td><td>ok (5)</td><td>pass (2)</td><td>pass (5)</td><td></td></tr>
+<tr><td>tests/charm++/objid_tranche</td><td>ok (4)</td><td>pass (2)</td><td>pass (5)</td><td></td></tr>
+<tr><td>tests/charm++/collide</td><td>ok (0)</td><td>pass (0)</td><td>pass (0)</td><td>run1p: ran nothing: the test target started no program; run2p: ran nothing: the test target started no program</td></tr>
+</table>
+<p>Counts: build ok: 36, run1p pass: 36, run2p pass: 36</p>
+<p>Directories with a test target that no aggregator Makefile reaches (not run in tier all): tests/charm++/bcast_copies, tests/charm++/cuda/d2dtest, tests/charm++/cuda/gpumigrate, tests/charm++/cuda/hapitest, tests/charm++/load_balancing/lb_test/predictor, tests/charm++/python, tests/charm++/randomTRAM3D, tests/charm++/zerocopy/large_p2p</p>
+<h3>Tier ex (81 directories)</h3>
+<table>
+<tr><th>directory</th><th>build</th><th>run1p</th><th>run2p</th><th>note</th></tr>
+<tr><td>examples/charm++/allGather</td><td>ok (3)</td><td>pass (12)</td><td>pass (11)</td><td>run1p: ran nothing: the test target started no program; run2p: ran nothing: the test target started no program</td></tr>
+<tr><td>examples/charm++/allToAll</td><td>ok (4)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/array_map</td><td>ok (4)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/ckcallback</td><td>ok (4)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/cksequence</td><td>ok (3)</td><td>pass (2)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/completion</td><td>ok (3)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/fib</td><td>ok (3)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/groupsection</td><td>ok (4)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/hello/3darray</td><td>ok (4)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/hello/fancyarray</td><td>ok (4)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/hello/darray</td><td>ok (4)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/hello/dgroup</td><td>ok (3)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/hello/group</td><td>ok (4)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/hello/stl_array</td><td>ok (4)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/hello/sdag</td><td>ok (4)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/hello/4darray</td><td>ok (3)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/hello/nodegroup</td><td>ok (3)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/hello/1darray</td><td>ok (4)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/hello/xarraySection</td><td>ok (4)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/immediateEntryMethod</td><td>ok (4)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/integrate</td><td>ok (3)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/integratePUPable</td><td>ok (4)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/integrateArray</td><td>ok (4)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/jacobi2d-1d-decomposition</td><td>ok (4)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/jacobi2d-2d-decomposition</td><td>ok (5)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/jacobi3d-2d-decomposition</td><td>ok (5)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/kmeans</td><td>ok (3)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/leanmd</td><td>ok (10)</td><td>pass (27)</td><td>pass (6)</td><td></td></tr>
+<tr><td>examples/charm++/load_balancing/hello</td><td>ok (4)</td><td>pass (2)</td><td>pass (4)</td><td></td></tr>
+<tr><td>examples/charm++/load_balancing/stencil3d</td><td>ok (5)</td><td>pass (90)</td><td>pass (29)</td><td></td></tr>
+<tr><td>examples/charm++/load_balancing/kNeighbor</td><td>ok (4)</td><td>pass (4)</td><td>pass (13)</td><td></td></tr>
+<tr><td>examples/charm++/manyToMany</td><td>ok (4)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/matmul</td><td>ok (4)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/namespace</td><td>ok (10)</td><td>pass (0)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/piArray</td><td>ok (3)</td><td>pass (4)</td><td>pass (3)</td><td></td></tr>
+<tr><td>examples/charm++/PUP/STLPUP</td><td>ok (4)</td><td>pass (1)</td><td>pass (3)</td><td></td></tr>
+<tr><td>examples/charm++/PUP/HeapPUP</td><td>ok (3)</td><td>pass (1)</td><td>pass (3)</td><td></td></tr>
+<tr><td>examples/charm++/PUP/seekBlock</td><td>ok (4)</td><td>pass (1)</td><td>pass (3)</td><td></td></tr>
+<tr><td>examples/charm++/PUP/pupDisk</td><td>ok (4)</td><td>pass (1)</td><td>pass (3)</td><td></td></tr>
+<tr><td>examples/charm++/PUP</td><td>ok (4)</td><td>pass (1)</td><td>pass (3)</td><td></td></tr>
+<tr><td>examples/charm++/NQueen</td><td>ok (12)</td><td>pass (14)</td><td>pass (5)</td><td></td></tr>
+<tr><td>examples/charm++/reductions/simple_reduction</td><td>ok (4)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/reductions/typed_reduction</td><td>ok (4)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/reductions/allReduce</td><td>ok (4)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/ring</td><td>ok (4)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/rings</td><td>ok (4)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/speeds</td><td>ok (4)</td><td>pass (0)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/sync_square</td><td>ok (4)</td><td>pass (0)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/threaded_ring</td><td>ok (4)</td><td>pass (0)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/TRAM/aggregateRandomAccessArray</td><td>ok (4)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/TRAM/aggregateRandomAccessGroup</td><td>ok (5)</td><td>pass (0)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/direct_api/unreg/simple_get</td><td>ok (4)</td><td>pass (1)</td><td>FAIL(rc=2) (4)</td><td>run2p: ------- Processor 1 Exiting: Called CmiAbort ------</td></tr>
+<tr><td>examples/charm++/zerocopy/direct_api/unreg/simple_put</td><td>ok (3)</td><td>pass (1)</td><td>FAIL(rc=2) (3)</td><td>run2p: ------- Processor 0 Exiting: Called CmiAbort ------</td></tr>
+<tr><td>examples/charm++/zerocopy/direct_api/unreg/get_put_pingpong</td><td>ok (4)</td><td>pass (1)</td><td>FAIL(rc=2) (3)</td><td>run2p: ------- Processor 1 Exiting: Called CmiAbort ------</td></tr>
+<tr><td>examples/charm++/zerocopy/direct_api/prereg/simple_get</td><td>ok (4)</td><td>pass (1)</td><td>pass (3)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/direct_api/prereg/simple_put</td><td>ok (3)</td><td>pass (2)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/direct_api/prereg/get_put_pingpong</td><td>ok (3)</td><td>pass (2)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/direct_api/reg/simple_get</td><td>ok (4)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/direct_api/reg/simple_put</td><td>ok (4)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/direct_api/reg/get_put_pingpong</td><td>ok (4)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/direct_api/misc/zcpy_immediate</td><td>ok (4)</td><td>pass (1)</td><td>FAIL(rc=2) (3)</td><td>run2p: ------- Processor 1 Exiting: Called CmiAbort ------</td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_api/unreg/simpleZeroCopy</td><td>ok (5)</td><td>pass (1)</td><td>FAIL(rc=2) (3)</td><td>run2p: ------- Processor 0 Exiting: Called CmiAbort ------</td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_api/unreg/stencil3d</td><td>ok (4)</td><td>pass (14)</td><td>FAIL(rc=2) (3)</td><td>run2p: ------- Processor 2 Exiting: Called CmiAbort ------</td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_api/prereg/simpleZeroCopy</td><td>ok (4)</td><td>pass (2)</td><td>pass (4)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_api/prereg/stencil3d</td><td>ok (4)</td><td>pass (14)</td><td>pass (9)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_api/reg/simpleZeroCopy</td><td>ok (5)</td><td>pass (1)</td><td>pass (4)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_api/reg/stencil3d</td><td>ok (4)</td><td>pass (14)</td><td>pass (11)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_api/misc/simpleVec</td><td>ok (4)</td><td>pass (1)</td><td>pass (1)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_bcast_api/unreg/simpleBcast</td><td>ok (4)</td><td>pass (4)</td><td>FAIL(rc=2) (3)</td><td>run2p: ------- Processor 3 Exiting: Called CmiAbort ------</td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_bcast_api/prereg/simpleBcast</td><td>ok (4)</td><td>pass (4)</td><td>pass (4)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_bcast_api/reg/simpleBcast</td><td>ok (5)</td><td>pass (4)</td><td>pass (3)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_post_api/unreg/simpleZeroCopy</td><td>ok (5)</td><td>pass (1)</td><td>FAIL(rc=2) (3)</td><td>run2p: ------- Processor 0 Exiting: Called CmiAbort ------</td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_post_api/prereg/simpleZeroCopy</td><td>ok (5)</td><td>pass (2)</td><td>pass (3)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_post_api/prereg/nodegroupTest</td><td>ok (5)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_post_api/reg/simpleZeroCopy</td><td>ok (5)</td><td>pass (1)</td><td>pass (4)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_post_api/reg/nodegroupTest</td><td>ok (4)</td><td>pass (1)</td><td>pass (2)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_post_api/reg/multiplePostedBuffers</td><td>ok (4)</td><td>pass (2)</td><td>pass (3)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_bcast_post_api/unreg/simpleBcastPost</td><td>ok (4)</td><td>pass (1)</td><td>FAIL(rc=2) (3)</td><td>run2p: ------- Processor 3 Exiting: Called CmiAbort ------</td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_bcast_post_api/prereg/simpleBcastPost</td><td>ok (5)</td><td>pass (1)</td><td>pass (3)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/entry_method_bcast_post_api/reg/simpleBcastPost</td><td>ok (4)</td><td>pass (1)</td><td>pass (4)</td><td></td></tr>
+<tr><td>examples/charm++/zerocopy/large_readonly</td><td>ok (3)</td><td>pass (3)</td><td>pass (5)</td><td></td></tr>
+</table>
+<p>Counts: build ok: 81, run1p pass: 81, run2p FAIL: 9, run2p pass: 72</p>
+<p>Directories with a test target that no aggregator Makefile reaches (not run in tier ex): examples/ParFUM, examples/ParFUM/2Dexample, examples/ParFUM/TOPS_simple2D, examples/ParFUM/billion2D, examples/ParFUM/globalExample, examples/ParFUM/simple2D, examples/charm++/AMPI-interop, examples/charm++/PICS/ping, examples/charm++/TRAM/randomAccessArray, examples/charm++/TRAM/randomAccessGroup, examples/charm++/arraysection, examples/charm++/ckloop/simpleLoopBench, examples/charm++/cuda, examples/charm++/cuda/busywait, examples/charm++/cuda/gpudirect, examples/charm++/cuda/gpudirect/jacobi2d, examples/charm++/cuda/gpudirect/jacobi2d-imbalance, examples/charm++/cuda/gpudirect/jacobi3d, examples/charm++/cuda/gpudirect/persistent, examples/charm++/cuda/gpudirect/sdag, examples/charm++/cuda/gpudirect/verify, examples/charm++/cuda/hello, examples/charm++/cuda/matmul, examples/charm++/cuda/mempool, examples/charm++/cuda/qdtest, examples/charm++/cuda/resume_thread, examples/charm++/cuda/stencil2d, examples/charm++/cuda/vecadd, examples/charm++/f90charm, examples/charm++/f90charm/hello, examples/charm++/f90charm/hello2D, examples/charm++/f90charm/ldbDemo, examples/charm++/f90charm/ldbRedDemo, examples/charm++/f90charm/sdag-case, examples/charm++/future, examples/charm++/hello/1darraymsg, examples/charm++/hello/3dmultiarrays, examples/charm++/hello/dllarray, examples/charm++/lvServer, examples/charm++/mpi-charmcollide, examples/charm++/mpi-coexist, examples/charm++/openmp/simpleLoopBench, examples/charm++/shared_runtimes/kokkos/hello, examples/charm++/shared_runtimes/kokkos/vecadd, examples/charm++/shared_runtimes/openmp-offload/vecadd, examples/charm++/shared_runtimes/raja/hello, examples/charm++/shared_runtimes/raja/vecadd, examples/charm++/shrink_expand/jacobi2d-iter, examples/charm++/whenidle, examples/multiphaseSharedArrays, examples/multiphaseSharedArrays/matmul</p>
+<h2>Excluded directories (coverage/exclude.txt)</h2>
+<pre>tests/ampi              # needs ./build AMPI: the charm++ target builds no ampicxx
+examples/ampi           # needs ./build AMPI: no ampicxx
+examples/collide        # needs ./build LIBS (collidecharm.h, libmodulecollidecharm) and AMPI (collidethread)
+tests/charm++/longIdle  # does not build: reconverse has no CcdCallOnConditionOnPE (RECONVERSE_NA in tests/charm++/Makefile)
+tests/charm++/io_read   # SIGSEGV with 1 and with 2 processes
+examples/charm++/zerocopy/entry_method_post_api/unreg/nodegroupTest  # its test always runs 2 processes; unregistered zerocopy across processes aborts with &quot;Network completion failed for peer rank 0&quot;</pre>
+<h2>Notes</h2>
+<ul>
+<li>ci: llvm-cov warned that 11876 functions have mismatched data. Expected: every test defines its own <code>main</code> and handlers under common names, and header inlines exist in several binaries. To see which: <code>llvm-profdata show --all-functions &lt;profdata&gt; | grep ':$' | sort | uniq -d</code>.</li>
+<li>ci+all: llvm-cov warned that 15702 functions have mismatched data. Expected: every test defines its own <code>main</code> and handlers under common names, and header inlines exist in several binaries. To see which: <code>llvm-profdata show --all-functions &lt;profdata&gt; | grep ':$' | sort | uniq -d</code>.</li>
+<li>ci+all+ex: llvm-cov warned that 21961 functions have mismatched data. Expected: every test defines its own <code>main</code> and handlers under common names, and header inlines exist in several binaries. To see which: <code>llvm-profdata show --all-functions &lt;profdata&gt; | grep ':$' | sort | uniq -d</code>.</li>
+<li>Denominators move between configurations (header instantiations, build options, which binaries were built), so compare percentages loosely and covered-line counts of one file where it matters.</li>
+<li>Files: report/&lt;label&gt;.profdata, report/&lt;label&gt;-report.txt (llvm-cov report, unmapped paths), report/&lt;label&gt;-summary.json, report/&lt;label&gt;.lcov, report/objects.txt, results-&lt;tier&gt;.tsv, vacuous-&lt;tier&gt;.tsv, logs/&lt;tier&gt;/.</li>
+</ul>
+</body></html>

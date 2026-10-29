@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Charm++ and reconverse coverage</title>
+<style>
+body { font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+       max-width: 72em; margin: 2em auto; padding: 0 1em; color: #222; }
+h1 { font-size: 1.6em; } h2 { font-size: 1.25em; margin-top: 2em; } h3 { font-size: 1.05em; }
+table { border-collapse: collapse; margin: 0.6em 0; font-size: 0.93em; }
+th, td { border: 1px solid #ccc; padding: 0.2em 0.6em; text-align: left; white-space: nowrap; }
+th { background: #f0f0f0; } td.num { text-align: right; }
+pre { background: #f6f6f6; padding: 0.6em; overflow-x: auto; font-size: 0.9em; }
+code { background: #f6f6f6; padding: 0 0.2em; }
+nav { color: #666; margin-bottom: 1em; } nav a { color: #246; }
+.big { font-size: 2em; font-weight: bold; margin-right: 1.2em; }
+.lbl { color: #666; font-size: 0.85em; display: block; }
+.muted { color: #666; font-size: 0.9em; }
+</style></head>
+<body>
+<nav></nav>
+<h1>Charm++ and reconverse coverage</h1>
+<p>Line coverage of <a href="https://github.com/charmplusplus/charm">Charm++</a> (branch recharm) and reconverse from clang source-based coverage, measured weekly in CI over the test tiers: <b>ci</b> (the directories the regular CI runs), <b>all</b> (every other test the aggregator Makefiles reach), <b>ex</b> (the examples). Each tier is cumulative with the ones before it. How the numbers are made, and their traps, is in <a href="https://github.com/charmplusplus/charm/blob/recharm/coverage/README.md">coverage/README.md</a>.</p>
+<h2>Latest: 2026-10-28 17:14:15 UTC, charm <a href="https://github.com/charmplusplus/charm/commit/23130be051"><code>23130be051</code></a></h2>
+<p>
+<span class="big">45.9%<span class="lbl">Charm++, hand-written files, lines, ci+all+ex</span></span>
+<span class="big">36.4%<span class="lbl">Charm++, all files incl. generated, lines, ci+all+ex</span></span>
+<span class="big">49.4%<span class="lbl">reconverse, lines, ci+all+ex</span></span>
+</p>
+<p><a href="runs/2026-10-28-23130be051/REPORT.html">Full report</a> &middot; <a href="runs/2026-10-28-23130be051/html/index.html">Per-file HTML view</a> &middot; <a href="https://github.com/charmplusplus/charm/actions/runs/40733138910">Workflow run</a></p>
+<h2>All runs</h2>
+<p class="muted">Lines covered, percent. The per-file HTML view is kept for the newest runs only; the report, summary JSON and lcov exports are kept for every run.</p>
+<table><tr><th rowspan="2">date</th><th rowspan="2">charm</th><th rowspan="2">reconverse</th><th colspan="3">Charm++, hand-written files</th><th colspan="3">Charm++, all files incl. generated</th><th colspan="3">reconverse</th><th rowspan="2">files</th></tr>
+<tr><th>ci</th><th>ci+all</th><th>ci+all+ex</th><th>ci</th><th>ci+all</th><th>ci+all+ex</th><th>ci</th><th>ci+all</th><th>ci+all+ex</th></tr>
+<tr><td><a href="runs/2026-10-28-23130be051/REPORT.html">2026-10-28 17:14:15 UTC</a></td><td><a href="https://github.com/charmplusplus/charm/commit/23130be051"><code>23130be051</code></a></td><td><code>a8efcfc233</code></td><td class="num">27.4%</td><td class="num">36.4%</td><td class="num">45.9%</td><td class="num">22.0%</td><td class="num">30.2%</td><td class="num">36.4%</td><td class="num">47.5%</td><td class="num">49.2%</td><td class="num">49.4%</td><td><a href="runs/2026-10-28-23130be051/html/index.html">HTML</a> <a href="runs/2026-10-28-23130be051/REPORT.md">md</a> <a href="runs/2026-10-28-23130be051/ci+all+ex-summary.json">json</a> <a href="runs/2026-10-28-23130be051/ci+all+ex.lcov.gz">lcov</a> <a href="https://github.com/charmplusplus/charm/actions/runs/40733138910">run</a></td></tr>
+</table>
+<p class="muted">Shapes are process counts (1 = one process, 2 = two processes through lcrun). Function percentages differ across compilers and are not compared here; see the report of each run.</p>
+</body></html>

@@ -1,0 +1,74 @@
+[
+ {
+  "id": "2026-10-28-23130be051",
+  "date": "2026-10-28 17:14:15 UTC",
+  "charm": "23130be051",
+  "reconverse": "a8efcfc233",
+  "shapes": "1 2",
+  "compiler": "/usr/bin/clang++ (Ubuntu clang version 18.1.3 (1ubuntu1))",
+  "run_url": "https://github.com/charmplusplus/charm/actions/runs/40733138910",
+  "html": true,
+  "headline": {
+   "charm_all": {
+    "ci": {
+     "lines": "22.0%",
+     "functions": "16.3%",
+     "regions": "23.9%",
+     "lines_covered": "18159 / 82387"
+    },
+    "ci+all": {
+     "lines": "30.2%",
+     "functions": "22.8%",
+     "regions": "30.7%",
+     "lines_covered": "24896 / 82392"
+    },
+    "ci+all+ex": {
+     "lines": "36.4%",
+     "functions": "26.9%",
+     "regions": "36.9%",
+     "lines_covered": "30001 / 82391"
+    }
+   },
+   "charm_hand": {
+    "ci": {
+     "lines": "27.4%",
+     "functions": "19.2%",
+     "regions": "28.6%",
+     "lines_covered": "12960 / 47219"
+    },
+    "ci+all": {
+     "lines": "36.4%",
+     "functions": "26.8%",
+     "regions": "35.8%",
+     "lines_covered": "17189 / 47224"
+    },
+    "ci+all+ex": {
+     "lines": "45.9%",
+     "functions": "32.4%",
+     "regions": "43.9%",
+     "lines_covered": "21668 / 47223"
+    }
+   },
+   "reconverse": {
+    "ci": {
+     "lines": "47.5%",
+     "functions": "50.4%",
+     "regions": "51.7%",
+     "lines_covered": "3878 / 8171"
+    },
+    "ci+all": {
+     "lines": "49.2%",
+     "functions": "52.7%",
+     "regions": "53.4%",
+     "lines_covered": "4022 / 8171"
+    },
+    "ci+all+ex": {
+     "lines": "49.4%",
+     "functions": "53.2%",
+     "regions": "53.5%",
+     "lines_covered": "4033 / 8171"
+    }
+   }
+  }
+ }
+]

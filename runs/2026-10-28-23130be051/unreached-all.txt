@@ -1,0 +1,8 @@
+tests/charm++/bcast_copies
+tests/charm++/cuda/d2dtest
+tests/charm++/cuda/gpumigrate
+tests/charm++/cuda/hapitest
+tests/charm++/load_balancing/lb_test/predictor
+tests/charm++/python
+tests/charm++/randomTRAM3D
+tests/charm++/zerocopy/large_p2p
