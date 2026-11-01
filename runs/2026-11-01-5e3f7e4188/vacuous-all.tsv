@@ -1,0 +1,5 @@
+tests/charm++/delegation/multicast	run2p	ran nothing: testrun skipped every run (PEs not divisible by 2)
+tests/charm++/collide	run1p	ran nothing: the test target started no program
+tests/charm++/collide	run2p	ran nothing: the test target started no program
+tests/campi	run1p	ran nothing: the test target started no program
+tests/campi	run2p	ran nothing: the test target started no program

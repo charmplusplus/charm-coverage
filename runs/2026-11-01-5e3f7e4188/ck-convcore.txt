@@ -1,0 +1,6 @@
+Summary ck (src/ck-core) (51 files):
+	lines......: 68.2% (10374 of 15202 lines)
+	functions..: 71.4% (1256 of 1758 functions)
+Summary conv (contrib/reconverse/src) (42 files):
+	lines......: 48.5% (3769 of 7771 lines)
+	functions..: 54.5% (415 of 761 functions)
